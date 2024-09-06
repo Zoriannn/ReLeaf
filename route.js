@@ -8,5 +8,8 @@ export const routes = {
   receiptqr: {
     to: () => '/receiptqr',
   },
+  nftqr: {
+    to: () => '/nftqr',
+  },
 
 };

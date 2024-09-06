@@ -67,7 +67,7 @@ function Layout(props) {
 
   return (
     <>
-      <div className="relative min-h-screen overflow-y-scroll bg-[#d6ffe4]">
+      <div className="relative min-h-screen  bg-[#d6ffe4]">
         {router.pathname === "/dashboard" ? (
           // Show floating buttons with bobbing effect on /dashboard
           <>
@@ -113,7 +113,7 @@ function Layout(props) {
 
         {/* Main Content */}
         <div className="w-full md:w-1/3 mx-auto">
-          <div className="relative container mx-auto h-full px-4">
+          <div className="relative container mx-auto h-full ">
             <div className="mb-auto h-screen">
               <div className="h-screen">
                 <div className="relative">{props.children}</div>

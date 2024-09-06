@@ -69,7 +69,7 @@ a {
   max-width: 1920px;
   /* min-width: 100%; */
   margin: auto;
-  height: calc(100vh - 4rem) !important;
+  height: calc(100vh) !important;
   bottom: 0;
 }
 

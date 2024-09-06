@@ -11,7 +11,8 @@ export const settingSlice = createSlice({
     isChatbotOpen: false,
     userInputLatest: '',
     fromForum: '',
-    username: ''
+    username: '',
+    bgImageUrl: '/images/1.png',
   },
   reducers: {
     setLoading: (state, action) => ({
@@ -45,6 +46,10 @@ export const settingSlice = createSlice({
     setUsername: (state, action) => ({
       ...state,
       username: action.payload,
+    }),
+    setBgImageUrl: (state, action) => ({
+      ...state,
+      bgImageUrl: action.payload,
     }),
   },
 });
