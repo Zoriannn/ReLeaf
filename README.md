@@ -1,8 +1,8 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="./logo.png" alt="ReLeaf"></a>
+ <img src="./logo.png" alt="ReLeaf" width="200" height="auto"></a>
 </p>
-<h1 align="center">HealthMe</h1>
+<h1 align="center">ReLeaf</h1>
 
 
 ## 📝 Table of Contents
