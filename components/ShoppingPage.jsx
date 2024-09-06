@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from './general/Layout';
 
 const items = [
   { id: 1, name: 'Garden', price: 0.59, image: '/images/garden.jpg' },
@@ -17,11 +18,12 @@ const formatCurrency = (amount) => {
 
 const ShoppingPage = ({ userCoins }) => {
   return (
-    <div className="max-w-5xl mx-auto p-8 bg-green-100">
+    <Layout>
+ <div className="max-w-5xl mx-auto p-8 bg-green-100">
       <header className="mb-8 flex flex-col items-start">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Shopping List</h1>
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Leaf NFT Shop</h1>
         <p className="text-xl text-gray-700">
-          Current Coins: <span className="font-bold text-blue-600">{formatCurrency(userCoins)}</span>
+          Current LeafCoins: <span className="font-bold text-blue-600">20.0</span>
         </p>
       </header>
 
@@ -39,6 +41,8 @@ const ShoppingPage = ({ userCoins }) => {
         ))}
       </ul>
     </div>
+    </Layout>
+   
   );
 };
 

@@ -24,7 +24,7 @@ function DashboardPage({ data }) {
       {/* Top bar */}
       <div className="w-full bg-green-500 text-white flex items-center justify-between p-2">
         {/* Leafcoin Section */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2" onClick={() => router.push('/shopping')}>
           <img src="/images/releaf_coin.png" alt="Leafcoin" className="w-6 h-6" />
           <span>20.0</span>
         </div>
