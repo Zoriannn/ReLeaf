@@ -11,5 +11,8 @@ export const routes = {
   nftqr: {
     to: () => '/nftqr',
   },
+  shopping: {
+    to: () => '/shopping',
+  }
 
 };
