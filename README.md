@@ -43,10 +43,10 @@ Relief the Earth.
 
 ## 🚀 Screenshots of our app design <a id = "screenshot"></a>
 <div style="display:flex;">
-  <img src="ss1.png" width="200" height = "200">
-  <img src="ss2.png" width="200" height = "200">
-  <img src="ss3.png" width="200" height = "200">
-  <img src="ss4.png" width="200" height = "200">
+  <img src="ss1.png" width="300" height = "400">
+  <img src="ss2.png" width="300" height = "400">
+  <img src="ss3.png" width="300" height = "400">
+  <img src="ss4.png" width="300" height = "400">
 </div>
 
 ## 🏁 Technologies We Used <a id = "tech"></a>
