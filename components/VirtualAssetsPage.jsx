@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import Layout from './general/Layout';
 import Image from 'next/image';
-import { sampleNFT, sampleShirt, sampleCollectible } from '../images'; // Sample asset images
-import Modal from 'react-modal'; // We'll use react-modal for the modal popup
+import { NFT_1 } from '../images';
+import Modal from 'react-modal'; 
 
-Modal.setAppElement('#__next'); // Ensure accessibility with ReactModal
+Modal.setAppElement('#__next');
 
 function VirtualAssetsPage() {
-  // Example asset list data
   const [assets] = useState([
-    { id: 1, name: 'NFT Artwork', description: 'A rare digital artwork.', image: sampleNFT, type: 'NFT' },
-    { id: 2, name: 'Virtual Shirt', description: 'Virtual shirt for the metaverse.', image: sampleShirt, type: 'Clothing' },
-    { id: 3, name: 'Limited Collectible', description: 'Special limited edition item.', image: sampleCollectible, type: 'Collectible' },
-    { id: 4, name: 'NFT Sculpture', description: 'A 3D NFT sculpture.', image: sampleNFT, type: 'NFT' },
-    { id: 5, name: 'Exclusive Outfit', description: 'Outfit for your virtual avatar.', image: sampleShirt, type: 'Clothing' },
-    { id: 6, name: 'Rare Collectible', description: 'A rare digital collectible.', image: sampleCollectible, type: 'Collectible' },
+    { id: 1, name: 'NFT Artwork', description: 'A rare digital artwork.', image: NFT_1, type: 'NFT', imageURL: '/images/NFT_1.jpg' },
+    { id: 2, name: 'Virtual Shirt', description: 'Virtual shirt for the metaverse.', image: NFT_1, type: 'Clothing', imageURL: '/images/virtualshirt.png' },
+    { id: 3, name: 'Limited Collectible', description: 'Special limited edition item.', image: NFT_1, type: 'Collectible', imageURL: '/images/limited.png' },
+    { id: 4, name: 'NFT Sculpture', description: 'A 3D NFT sculpture.', image: NFT_1, type: 'NFT', imageURL: '/images/NFT_sculpture.png' },
+    { id: 5, name: 'Exclusive Outfit', description: 'Outfit for your virtual avatar.', image: NFT_1, type: 'Clothing', imageURL: '/images/exclusive.png' },
+    { id: 6, name: 'Rare Collectible', description: 'A rare digital collectible.', image: NFT_1, type: 'Collectible', imageURL: '/images/rareNFT.jpg' },
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +21,6 @@ function VirtualAssetsPage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState(null);
 
-  // Filter and search logic
   const filteredAssets = assets.filter((asset) => {
     const matchesSearch = asset.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filter === 'All' || asset.type === filter;
@@ -41,7 +39,7 @@ function VirtualAssetsPage() {
 
   return (
     <Layout>
-      <div className="relative w-full h-screen bg-gray-100 px-4 py-6">
+      <div className="relative w-full h-screen bg-green-150 px-4 py-6">
         {/* Title */}
         <h1 className="text-center text-3xl font-bold mb-6 text-gray-800">My Virtual Assets</h1>
 
@@ -67,62 +65,42 @@ function VirtualAssetsPage() {
           </select>
         </div>
 
-        {/* Table of Assets */}
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white rounded-lg shadow-lg">
-            <thead>
-              <tr className="bg-green-500 text-white">
-                <th className="py-2 px-4">Image</th>
-                <th className="py-2 px-4">Name</th>
-                <th className="py-2 px-4">Type</th>
-                <th className="py-2 px-4">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredAssets.length > 0 ? (
-                filteredAssets.map((asset) => (
-                  <tr key={asset.id} className="border-b">
-                    {/* Asset Image */}
-                    <td className="py-2 px-4">
-                      <Image src={asset.image} alt={asset.name} width={80} height={80} className="rounded-lg" />
-                    </td>
-
-                    {/* Asset Name */}
-                    <td className="py-2 px-4">
-                      <span className="font-semibold text-gray-800">{asset.name}</span>
-                    </td>
-
-                    {/* Asset Type */}
-                    <td className="py-2 px-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        asset.type === 'NFT'
-                          ? 'bg-purple-100 text-purple-800'
-                          : asset.type === 'Clothing'
-                          ? 'bg-blue-100 text-blue-800'
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {asset.type}
-                      </span>
-                    </td>
-
-                    {/* View Details Button */}
-                    <td className="py-2 px-4 text-center">
-                      <button
-                        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
-                        onClick={() => openModal(asset)}
-                      >
-                        View Details
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="4" className="text-center py-4 text-gray-500">No assets found</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+        {/* Grid of Assets */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredAssets.length > 0 ? (
+            filteredAssets.map((asset) => (
+              <div
+                key={asset.id}
+                className="bg-white rounded-lg shadow-lg p-4 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                onClick={() => openModal(asset)}
+              >
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src={asset.imageURL}
+                    alt={asset.name}
+                    width={150}
+                    height={150}
+                    className="rounded-lg"
+                  />
+                </div>
+                <h2 className="text-center text-xl font-semibold text-gray-800 mb-2">{asset.name}</h2>
+                <p className="text-center text-gray-600">{asset.description}</p>
+                <div className="text-center mt-2">
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    asset.type === 'NFT'
+                      ? 'bg-purple-100 text-purple-800'
+                      : asset.type === 'Clothing'
+                      ? 'bg-blue-100 text-blue-800'
+                      : 'bg-yellow-100 text-yellow-800'
+                  }`}>
+                    {asset.type}
+                  </span>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-4 text-gray-500">No assets found</div>
+          )}
         </div>
 
         {/* Modal for Asset Details */}
@@ -136,7 +114,7 @@ function VirtualAssetsPage() {
             <>
               <div className="flex justify-center mb-4">
                 <Image
-                  src={selectedAsset.image}
+                  src={selectedAsset.imageURL}
                   alt={selectedAsset.name}
                   width={150}
                   height={150}
