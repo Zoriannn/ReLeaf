@@ -7,6 +7,7 @@ import {
   DollarOutlined,
   ExperimentOutlined,
   DatabaseOutlined,
+  DashboardOutlined, // Import Dashboard icon from Ant Design
 } from "@ant-design/icons";
 import LoadingModal from "../dialog/LoadingModal";
 import AlertModal from "../dialog/AlertModal";
@@ -31,7 +32,7 @@ function Layout(props) {
       action: () => {
         setSelected(0); // Set selected icon
         //dispatch(SettingActions.setLoading(true));
-        // router.push("/receipt");
+         router.push("/receiptqr");
       },
     },
     {
@@ -41,7 +42,7 @@ function Layout(props) {
       action: () => {
         setSelected(1); // Set selected icon
         //dispatch(SettingActions.setLoading(true));
-        // router.push("/nft");
+         router.push("/nftqr");
       },
     },
   ];
@@ -54,7 +55,7 @@ function Layout(props) {
       action: () => {
         setSelected(2); // Set selected icon
        // dispatch(SettingActions.setLoading(true));
-        // router.push("/ar");
+         router.push("/ar");
       },
     },
     {
@@ -64,16 +65,27 @@ function Layout(props) {
       action: () => {
         setSelected(3); // Set selected icon
         //dispatch(SettingActions.setLoading(true));
-        // router.push("/asset");
+         router.push("/virtualassets");
       },
     },
   ];
+
+  // New dashboard button for the bottom nav bar only
+  const dashboardButton = {
+    key: 4,
+    label: "Dashboard", // Label for the Dashboard button
+    icon: <DashboardOutlined className="text-4xl" />, // Icon for Dashboard
+    action: () => {
+      setSelected(4); // Set selected icon
+      router.push("/dashboard"); // Redirect to /dashboard
+    },
+  };
 
   return (
     <>
       <div className="relative min-h-screen  bg-[#d6ffe4]">
         {router.pathname === "/dashboard" ? (
-          // Show floating buttons with bobbing effect on /dashboard
+          // Show floating buttons with bobbing effect on /dashboard, without Dashboard button
           <>
             <div className="z-50 absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
               {leftMenu.map((item) => (
@@ -106,10 +118,10 @@ function Layout(props) {
         ) : router.pathname !== "/" ? (
           // Show static buttons at the bottom for other routes except root "/"
           <div className="fixed bottom-0 left-0 right-0 bg-green-400 rounded-t-xl pt-3 shadow-xl py-2 flex justify-around items-center z-50">
-            {[...leftMenu, ...rightMenu].map((item) => (
+            {[...leftMenu, ...rightMenu, dashboardButton].map((item) => (
               <button
                 key={item.key}
-                className={`w-16 h-16 flex flex-col items-center justify-centerrounded-full  transition-transform duration-300 p-1 ${
+                className={`w-16 h-16 flex flex-col items-center justify-center rounded-full transition-transform duration-300 p-1 ${
                   selected === item.key ? "bg-white rounded-full text-green-500" : "text-white"
                 }`}
                 onClick={item.action}

@@ -51,8 +51,8 @@ function NFTQRPage() {
             style={{ width: '100%', height: '100%' }}
           />
 
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-3xl z-50 font-bold">
-            Receipt
+          <div className="absolute top-0 left-10 transform text-3xl z-50 font-bold">
+            Claim Merchant NFT
           </div>
 
           {/* Instructions at the bottom */}
@@ -64,9 +64,9 @@ function NFTQRPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6 4H6M12 6v6m6-6H6" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-700">Please scan your receipt QR code</h3>
+              <h3 className="text-lg font-semibold text-gray-700">Please scan your item's QR code</h3>
               <p className="text-sm text-gray-500 mt-2 max-w-md">
-                Scan the QR code on the back of your receipt to prove you bought sustainable items. Hold your receipt steady and ensure the QR code is clearly visible to the camera.
+                Scan the QR code on the back of your sustainable goods to prove you bought sustainable items from our merchants. You will find this QR code inside of the merchant packaging or under bottle caps
               </p>
             </div>
           </div>

@@ -20,6 +20,8 @@ function ReceiptQRPage() {
     }
   };
 
+  
+
   const handleError = (err) => {
    // console.error('QR Scanner Error:', err);
   };
