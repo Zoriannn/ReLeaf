@@ -10,9 +10,8 @@
 - [Project Name](#project_name)
 - [Tagline](#tagline)
 - [The Problem it Solves](#problem)
-- [Challenges we ran into](#challenges)
+- [Screenshots of our app design](#screenshot)
 - [Technologies We Used](#tech)
-- [Hosting & Contract Link](#link)
 - [Cover Image](cover_img)
 
 ## 🧐 Project Name <a id = "project_name"></a>
@@ -42,16 +41,17 @@ Relief the Earth.
 **Solution**: The project highlights and supports these merchants by integrating them into a reward system, thus driving more customers to their businesses.
 
 
-## 🚀 Screenshots of our app design <a id = "challenges"></a>
-
+## 🚀 Screenshots of our app design <a id = "screenshot"></a>
+<div style="display:flex;">
+  <img src="https://github.com/Zoriannn/ReLeaf/blob/main/ss1.png" width="400">
+  <img src="https://github.com/Zoriannn/ReLeaf/blob/main/ss2.png" width="400">
+  <img src="https://github.com/Zoriannn/ReLeaf/blob/main/ss3.png" width="400">
+  <img src="https://github.com/Zoriannn/ReLeaf/blob/main/ss4.png" width="400">
+</div>
 
 ## 🏁 Technologies We Used <a id = "tech"></a>
 
 ReactJS, TailwindCSS, HTML, CSS, JavaScript
-
-### Hosting & Contract Link <a id = "link"></a>
-- The frontend website: 
-  [Main](https://healthme-funds.web.app)
 
 
 ## 🎉 Acknowledgments <a id = "acknowledgments"></a>
