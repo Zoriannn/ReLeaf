@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
-import { SettingActions } from "../reducers/settingReducer";
-import { FileTextOutlined, DollarOutlined, ExperimentOutlined, DatabaseOutlined } from "@ant-design/icons";
+import {
+  FileTextOutlined,
+  DollarOutlined,
+  ExperimentOutlined,
+  DatabaseOutlined,
+} from "@ant-design/icons";
 import LoadingModal from "../dialog/LoadingModal";
 import AlertModal from "../dialog/AlertModal";
 
@@ -75,7 +79,9 @@ function Layout(props) {
               {leftMenu.map((item) => (
                 <button
                   key={item.key}
-                  className={`mx-5 w-16 h-16 flex items-center justify-center bg-green-500 rounded-full shadow-lg transition-transform duration-300 button-bobbing ${selected === item.key ? "bg-white text-green-500" : "text-white"}`}
+                  className={`mx-5 w-16 h-16 flex items-center justify-center bg-green-500 rounded-full shadow-lg transition-transform duration-300 button-bobbing ${
+                    selected === item.key ? "bg-white text-green-500" : "text-white"
+                  }`}
                   onClick={item.action}
                 >
                   <div>{item.icon}</div>
@@ -87,7 +93,9 @@ function Layout(props) {
               {rightMenu.map((item) => (
                 <button
                   key={item.key}
-                  className={`mx-5 w-16 h-16 flex items-center justify-center bg-green-500 rounded-full shadow-lg transition-transform duration-300 button-bobbing ${selected === item.key ? "bg-white text-green-500" : "text-white"}`}
+                  className={`mx-5 w-16 h-16 flex items-center justify-center bg-green-500 rounded-full shadow-lg transition-transform duration-300 button-bobbing ${
+                    selected === item.key ? "bg-white text-green-500" : "text-white"
+                  }`}
                   onClick={item.action}
                 >
                   <div>{item.icon}</div>
@@ -95,13 +103,15 @@ function Layout(props) {
               ))}
             </div>
           </>
-        ) : (
-          // Show static buttons at the bottom for other routes
+        ) : router.pathname !== "/" ? (
+          // Show static buttons at the bottom for other routes except root "/"
           <div className="fixed bottom-0 left-0 right-0 bg-green-400 rounded-t-xl pt-3 shadow-xl py-2 flex justify-around items-center z-50">
             {[...leftMenu, ...rightMenu].map((item) => (
               <button
                 key={item.key}
-                className={`w-16 h-16 flex flex-col items-center justify-centerrounded-full  transition-transform duration-300 p-1 ${selected === item.key ? "bg-white rounded-full text-green-500" : "text-white"}`}
+                className={`w-16 h-16 flex flex-col items-center justify-centerrounded-full  transition-transform duration-300 p-1 ${
+                  selected === item.key ? "bg-white rounded-full text-green-500" : "text-white"
+                }`}
                 onClick={item.action}
               >
                 <div>{item.icon}</div>
@@ -109,7 +119,7 @@ function Layout(props) {
               </button>
             ))}
           </div>
-        )}
+        ) : null} {/* Do not show any buttons when pathname === '/' */}
 
         {/* Main Content */}
         <div className="w-full md:w-1/3 mx-auto">
